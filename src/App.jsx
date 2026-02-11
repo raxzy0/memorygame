@@ -1,12 +1,8 @@
 import { useState, useEffect} from 'react'
 import './App.css'
 import Card from './Card'
-<<<<<<< HEAD
-import {Link} from 'react-router'
-=======
 import getData from './getData'
->>>>>>> 869fa9668f5de0cb063fd5829ce6145a785e5f81
-
+import { Link } from 'react-router'
 function App() {
   const [count, setCount] = useState(0)
   const [highscore, setHighscore] = useState(0)
