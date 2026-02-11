@@ -1,20 +1,29 @@
 import { useState, useEffect} from 'react'
 import './App.css'
 import Card from './Card'
+<<<<<<< HEAD
 import {Link} from 'react-router'
+=======
+import getData from './getData'
+>>>>>>> 869fa9668f5de0cb063fd5829ce6145a785e5f81
 
 function App() {
   const [count, setCount] = useState(0)
   const [highscore, setHighscore] = useState(0)
   const [clickedCards, setClickedCards] = useState([])
-  const list = [
-    {id: 1, name: "Dog"},
-    {id: 2, name: "Pig"},
-    {id: 3, name: "Cat" },
-    {id: 4, name: "Faa"}
-  ]
-  const [cards, setCards] = useState(list)
+  const [list, setList] = useState([])
+  const [cards, setCards] = useState([])
 
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getData()
+      setList(data)
+      setCards(data)
+    }
+    fetchData()
+  }, [])
+  
+  console.log(list)
   function randomise(cards) {
     let currentIndex = cards.length
     while (currentIndex != 0) {
@@ -24,10 +33,10 @@ function App() {
     }
     setCards(cards)
   }
-  console.log(cards)
+
   let listCards = cards.map(item => 
     <Card key = {item.id} id= {item.id} name={item.name} count = {count} onCountChange = {setCount} clickedCards = {clickedCards} setClickedCards = {setClickedCards} randomise = {randomise} cards = {cards}/>)
-  console.log(listCards)
+
 
   if (count > highscore) {
     setHighscore(count)
@@ -37,7 +46,7 @@ function App() {
     <>
       <p>You are on {count} points</p>
       <p>Highscore: {highscore}</p>
-      <div>
+      <div className = 'container'>
         {listCards}
       </div>
       <Link to = "Page">Info</Link>

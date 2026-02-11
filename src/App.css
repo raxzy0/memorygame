@@ -41,6 +41,10 @@
   color: #888;
 }
 
+.container {
+  height: 80vh;
+  width: 60vw;
+}
 a {
   display:block;
 }
