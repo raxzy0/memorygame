@@ -7,18 +7,18 @@ function Card({ id, name, count, onCountChange, clickedCards, setClickedCards, r
         if (clickedCards.includes(id)) {
             onCountChange(0)
             setClickedCards([])
-            randomise(cards)
         }
         else {
             onCountChange(count + 1)
             setClickedCards([...clickedCards, id])
         }
+        randomise(cards)
     }
 
     return(
-        <button onClick = {handleClick}>
+        <button className = 'btn' onClick = {handleClick}>
             <img src = "null"></img>
-            <p>{name} {id} </p>
+            <p>{name}</p>
         </button>
     )
 }
