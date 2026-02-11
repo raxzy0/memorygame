@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react'
 import './App.css'
 import Card from './Card'
-
+import {Link} from 'react-router'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +40,8 @@ function App() {
       <div>
         {listCards}
       </div>
+      <Link to = "Page">Info</Link>
+      <Link to = "Rules">Rules</Link>
     </>
   )
 }
