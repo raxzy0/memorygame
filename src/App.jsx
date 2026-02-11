@@ -19,7 +19,6 @@ function App() {
     fetchData()
   }, [])
   
-  console.log(list)
   function randomise(cards) {
     let currentIndex = cards.length
     while (currentIndex != 0) {
